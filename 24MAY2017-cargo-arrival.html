@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <script type="text/javascript">
+        //Get cache time in cargo_arrinfo
+        var noRec='No Record Found!';
+        var widths=["36", "59", "116", "179", null];
+        var types=[null, 'FN', 'AP', 'AL', null];
+        var aligns=['center', null, null, null, null];
+        var tdClasses=["flightContent", "flightNum", "flightContent", "flightLogoAndContent", "flightContentEnd"];
+    </script>
+    <script src="../include/list.js" type="text/javascript">
+    </script>
+    <script language="javascript" type="text/javascript">
+        var section = 0;
+        var level1 = "flight";
+        var level2 = "real";
+        var level3 = "cargoarrival";
+        var level4 = "";
+        var level5 = "";
+        var path = "/eng/";
+
+        var d = document;
+    </script>
+    <script language="javascript" src="/eng/js/global.js" type="text/javascript">
+    </script>
+    <script language="javascript" src="/eng/js/flightInfoAnnouncement.js" type="text/javascript">
+    </script>
+    <script language="javascript" type="text/javascript">
+        function showAnnouncement(y) {
+            flightInfoAnnouncement("eng", "cargo", "arrival", y);
+        }
+    </script>
+    <script language="javascript" src="/eng/js/sp.js" type="text/javascript">
+    </script>
+    <link href="/eng/css/content.css" rel="stylesheet" type="text/css">
+    <link href="/eng/css/flight.css" rel="stylesheet" type="text/css">
+    <link href="/eng/css/flight_info.css" rel="stylesheet" type="text/css">
+    <title></title>
+</head>
+<body onload="setTimeout(chgList, 0)" style="background-color:#FFFFFF;">
+<script language="javascript" src="/eng/include/announcement.js" type="text/javascript">
+</script>
+<div id="loading" style="position: absolute; top: 50px; left: 210px;"><img src="img/loading.gif"></div>
+<h1 style="color: White; font-size: 1px; margin: 0; padding: 0;">Real Time Flight Information</h1>At gate 00:53
+<table border="0" cellpadding="2" cellspacing="0" id="list" style="display: none;" width="100%">
+    <tr>
+        <td>10:45</td>
+        <td>CX 014</td>
+        <td>Frankfurt,Milan/MXP,Mumbai</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 00:49 (24/5/2017)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:55</td>
+        <td>5Y 8095</td>
+        <td>Delhi</td>
+        <td>wmogti,Atlas Air</td>
+        <td>At gate 07:56 (24/5/2017)</td>
+    </tr>
+    <tr>
+        <td>22:30</td>
+        <td>P3 245</td>
+        <td>Dubai/DWC</td>
+        <td>dummy,CargoLogicAir</td>
+        <td>At gate 01:10 (24/5/2017)</td>
+    </tr>
+    <tr>
+        <td>23:30</td>
+        <td>CI 5835</td>
+        <td>Taipei</td>
+        <td>wmocal,China Airlines</td>
+        <td>At gate 00:18 (24/5/2017)</td>
+    </tr>
+    <tr>
+        <td>00:20</td>
+        <td>LD 681</td>
+        <td>Taipei</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 00:24</td>
+    </tr>
+    <tr>
+        <td>00:30</td>
+        <td>LD 129</td>
+        <td>Seoul/ICN</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>A t gate 00:59</td>
+    </tr>
+    <tr>
+        <td>00:40</td>
+        <td>LD 205</td>
+        <td>Osaka/Kansai</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 00:33</td>
+    </tr>
+    <tr>
+        <td>00:40</td>
+        <td>CX 022</td>
+        <td>Sydney,Melbourne,Wellcamp Apt</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 03:07</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>00:45</td>
+        <td>CX 035</td>
+        <td>Osaka/Kansai,Seoul/ICN</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 02:05</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>00:45</td>
+        <td>KZ 203</td>
+        <td>Tokyo/NRT</td>
+        <td>wmonca,NCA</td>
+        <td>At gate 00:30</td>
+    </tr>
+    <tr>
+        <td>00:50</td>
+        <td>LD 456</td>
+        <td>Manila</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 00:52</td>
+    </tr>
+    <tr>
+        <td>00:55</td>
+        <td>LD 209</td>
+        <td>Tokyo/NRT</td>
+        <td>wmoahk,Air Hong Kong</td>
+    </tr>
+    <tr>
+        <td>00:55</td>
+        <td>LD 217</td>
+        <td>Nagoya</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 00:19</td>
+    </tr>
+    <tr>
+        <td>00:55</td>
+        <td>CX 048</td>
+        <td>Dhaka,Hanoi</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 00:49</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>01:05</td>
+        <td>TH 3507</td>
+        <td>Subang</td>
+        <td>dummy,Raya Airways</td>
+        <td>At gate 01:29</td>
+    </tr>
+    <tr>
+        <td>01:10</td>
+        <td>LD 769</td>
+        <td>Beijing</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 00:57</td>
+    </tr>
+    <tr>
+        <td>01:10</td>
+        <td>KE 313</td>
+        <td>Seoul/ICN</td>
+        <td>wmokal,Korean Air</td>
+        <td>At gate 00:57</td>
+    </tr>
+    <tr>
+        <td>01:15</td>
+        <td>LD 783</td>
+        <td>Shanghai/PVG</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 02:50</td>
+    </tr>
+    <tr>
+        <td>01:15</td>
+        <td>RH 6320</td>
+        <td>Hanoi</td>
+        <td>dummy,Hong Kong Air Cargo</td>
+        <td>At gate 01:15</td>
+    </tr>
+    <tr>
+        <td>01:20</td>
+        <td>LD 326</td>
+        <td>Singapore</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 01:09</td>
+    </tr>
+    <tr>
+        <td>01:20</td>
+        <td>BR 6537</td>
+        <td>Taipei</td>
+        <td>wmoeva,EVA Air</td>
+        <td>At gate 02:14</td>
+    </tr>
+    <tr>
+        <td>01:20</td>
+        <td>SQ 7862</td>
+        <td>Singapore</td>
+        <td>dummy,Singapore Airlines Cargo</td>
+        <td>At gate 01:16</td>
+    </tr>
+    <tr>
+        <td>01:30</td>
+        <td>LD 562</td>
+        <td>Penang,Ho Chi Minh</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 01:21</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>01:30</td>
+        <td>8K 525</td>
+        <td>Udon Thani</td>
+        <td>dummy,K-Mile Air</td>
+        <td>At gate 01:17</td>
+    </tr>
+    <tr>
+        <td>01:30</td>
+        <td>Y8 7433</td>
+        <td>Chengdu</td>
+        <td>dummy,Yangtze River Express</td>
+        <td>At gate 01:25</td>
+    </tr>
+    <tr>
+        <td>01:35</td>
+        <td>LD 832</td>
+        <td>Bangkok</td>
+        <td>wmoahk,Air Hong Kong</td>
+        <td>At gate 01:47</td>
+    </tr>
+    <tr>
+        <td>02:25</td>
+        <td>K4 247</td>
+        <td>Cincinnati,Delhi</td>
+        <td>dummy,Kalitta Air</td>
+        <td>At gate 02:20</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>02:30</td>
+        <td>CX 2046</td>
+        <td>Delhi</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 01:57</td>
+    </tr>
+    <tr>
+        <td>02:45</td>
+        <td>5X 004</td>
+        <td>Philadelphia,Cologne,Okecie</td>
+        <td>wmoups,UPS</td>
+        <td>At gate 02:33</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>02:55</td>
+        <td>CX 099</td>
+        <td>New York/JFK,Chicago,Anchorage</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 02:36</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>03:15</td>
+        <td>SV 3986</td>
+        <td>Riyadh</td>
+        <td>wmosva,Saudi Arabian</td>
+        <td>At gate 03:32</td>
+    </tr>
+    <tr>
+        <td>0 3:35</td>
+        <td>3S 514</td>
+        <td>Leipzig,Dubai</td>
+        <td>dummy,AeroLogic</td>
+        <td>At gate 03:41</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>04:00</td>
+        <td>HX 9004</td>
+        <td>Hangzhou</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 04:03</td>
+    </tr>
+    <tr>
+        <td>04:00</td>
+        <td>3V 051</td>
+        <td>Liege,Dubai</td>
+        <td>dummy,TNT Airways S.A.</td>
+        <td>At gate 03:55</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>04:30</td>
+        <td>HX 9269</td>
+        <td>Taipei</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 04:11</td>
+    </tr>
+    <tr>
+        <td>04:30</td>
+        <td>SV 982</td>
+        <td>Riyadh,Jeddah</td>
+        <td>wmosva,Saudi Arabian</td>
+        <td>At gate 11:50</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>04:45</td>
+        <td>CK 263</td>
+        <td>Shanghai/PVG</td>
+        <td>dummy,China Cargo Airlines Ltd.</td>
+        <td>At gate 07:06</td>
+    </tr>
+    <tr>
+        <td>05:40</td>
+        <td>HX 9014</td>
+        <td>Ho Chi Minh</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 12:41</td>
+    </tr>
+    <tr>
+        <td>06:10</td>
+        <td>OZ 952</td>
+        <td>Seoul/ICN,Hanoi</td>
+        <td>wmoaar,Asiana Airlines</td>
+        <td>At gate 05:32</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>06:10</td>
+        <td>QR 8402</td>
+        <td>Doha</td>
+        <td>wmoqtr,QATAR AIRWAYS</td>
+        <td>At gate 05:59</td>
+    </tr>
+    <tr>
+        <td>06:40</td>
+        <td>NH 8423</td>
+        <td>Okinawa</td>
+        <td>wmoana,All Nippon Airways</td>
+        <td>At gate 07:18</td>
+    </tr>
+    <tr>
+        <td>07:25</td>
+        <td>CV 632</td>
+        <td>Bangkok</td>
+        <td>wmoclx,Cargolux Airlines</td>
+        <td>At gate 08:36</td>
+    </tr>
+    <tr>
+        <td>07:30</td>
+        <td>O3 6891</td>
+        <td>Ningbo</td>
+        <td>dummy,SF Airlines</td>
+        <td>At gate 06:56</td>
+    </tr>
+    <tr>
+        <td>08:00</td>
+        <td>PO 969</td>
+        <td>Seoul/ICN</td>
+        <td>wmopac,Polar Air Cargo</td>
+        <td>At gate 07:44</td>
+    </tr>
+    <tr>
+        <td>08:05</td>
+        <td>CX 3261</td>
+        <td>Chongqing,Chengdu</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 13:08</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>08:20</td>
+        <td>3S 518</td>
+        <td>Leipzig,Bangalore</td>
+        <td>dummy,AeroLogic</td>
+        <td>At gate 07:51</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>08:30</td>
+        <td>BH 5411</td>
+        <td>Dhaka</td>
+        <td>dummy,BISMILLAH AIRLINES LTD</td>
+        <td>Cancelled</td>
+    </tr>
+    <tr>
+        <td>08:30</td>
+        <td>HX 9252</td>
+        <td>Shanghai/PVG,Haikou</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 19:14</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>09:00</td>
+        <td>CX 3239</td>
+        <td>Shanghai/PVG</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 12:33</td>
+    </tr>
+    <tr>
+        <td>10:20</td>
+        <td>5X 068</td>
+        <td>Louisville,Anchorage</td>
+        <td>wmoups,UPS</td>
+        <td>Cancelled</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>11:00</td>
+        <td>ET 3728</td>
+        <td>Brussels</td>
+        <td>wmoeth,Ethiopian Airlines</td>
+        <td>At gate 12:21</td>
+    </tr>
+    <tr>
+        <td>11:15</td>
+        <td>CX 051</td>
+        <td>Shanghai/PVG,Zhengzhou</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 15:01</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>11:35</td>
+        <td>CX 2028</td>
+        <td>Chennai,Hanoi</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 17:10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>11:35</td>
+        <td>QR 8406</td>
+        <td>Doha</td>
+        <td>wmoqtr,QATAR AIRWAYS</td>
+        <td>At gate 11:46</td>
+    </tr>
+    <tr>
+        <td>12:00</td>
+        <td>KZ 627</td>
+        <td>Tokyo/NRT</td>
+        <td>wmonca,NCA</td>
+        <td>At gate 19:31</td>
+    </tr>
+    <tr>
+        <td>12:35</td>
+        <td>PO 947</td>
+        <td>Cincinnati,Anchorage</td>
+        <td>wmopac,Polar Air Cargo</td>
+        <td>At gate 13:15</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>12:55</td>
+        <td>5X 062</td>
+        <td>Louisville,Anchorage</td>
+        <td>wmoups,UPS</td>
+        <td>At gate 14:51</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>13:05</td>
+        <td>SQ 7972</td>
+        <td>Singapore</td>
+        <td>dummy,Singapore Airlines Cargo</td>
+        <td>At gate 13:27</td>
+    </tr>
+    <tr>
+        <td>14:05</td>
+        <td>RH 6332</td>
+        <td>Bangkok</td>
+        <td>dummy,Hong Kong Air Cargo</td>
+        <td>At gate 16:28</td>
+    </tr>
+    <tr>
+        <td>14:25</td>
+        <td>CX 005</td>
+        <td>Tokyo/NRT,Taipei</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 17:10</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:35</td>
+        <td>C8 675</td>
+        <td>Luxembourg,Kuwait</td>
+        <td>dummy,Cargolux Italia S.P.A.</td>
+        <td>At gate 15:08</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:40</td>
+        <td>PO 237</td>
+        <td>Cincinnati,Seoul/ICN</td>
+        <td>wmopac,Polar Air Cargo</td>
+        <td>At gate 15:25</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>14:50</td>
+        <td>5X 058</td>
+        <td>Ontario,Honolulu</td>
+        <td>wmoups,UPS</td>
+        <td>At gate 15:16</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>15:15</td>
+        <td>K4 9237</td>
+        <td>Oslo Airport</td>
+        <td>dummy,Kalitta Air</td>
+        <td>At gate 15:31</td>
+    </tr>
+    <tr>
+        <td>15:20</td>
+        <td>5X 002</td>
+        <td>Philadelphia,Cologne,Taipei</td>
+        <td>wmoups,UPS</td>
+        <td>At gate 00:39 (25/5/2017)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>15:30</td>
+        <td>EK 9282</td>
+        <td>Dubai/DWC</td>
+        <td>wmouae,Emirates</td>
+        <td>At gate 15:58</td>
+    </tr>
+    <tr>
+        <td>15:40</td>
+        <td>FX 9843</td>
+        <td>Memphis,Anchorage</td>
+        <td>wmofdx,Fede ral Express</td>
+        <td>At gate 16:44</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>15:40</td>
+        <td>5X 064</td>
+        <td>Louisville,Anchorage,Seoul/ICN</td>
+        <td>wmoups,UPS</td>
+        <td>At gate 18:20</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>16:10</td>
+        <td>RU 331</td>
+        <td>Seoul/ICN</td>
+        <td>dummy,Airbridge Cargo Airline</td>
+        <td>At gate 17:34</td>
+    </tr>
+    <tr>
+        <td>16:45</td>
+        <td>FX 5391</td>
+        <td>Seoul/ICN</td>
+        <td>wmofdx,Federal Express</td>
+        <td>At gate 17:43</td>
+    </tr>
+    <tr>
+        <td>17:10</td>
+        <td>EK 9832</td>
+        <td>Dubai/DWC</td>
+        <td>wmouae,Emirates</td>
+        <td>At gate 17:33</td>
+    </tr>
+    <tr>
+        <td>17:15</td>
+        <td>9S 275</td>
+        <td>Cincinnati,Bahrain</td>
+        <td>dummy,Southern Air Inc</td>
+        <td>At gate 18:28</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>17:40&lt; /td&gt;</td>
+        <td>QR 8466</td>
+        <td>Doha</td>
+        <td>wmoqtr,QATAR AIRWAYS</td>
+        <td>At gate 20:10</td>
+    </tr>
+    <tr>
+        <td>18:05</td>
+        <td>QR 8404</td>
+        <td>Doha</td>
+        <td>wmoqtr,QATAR AIRWAYS</td>
+        <td>At gate 20:23</td>
+    </tr>
+    <tr>
+        <td>18:20</td>
+        <td>HX 9702D</td>
+        <td>Singapore</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 19:19 (25/5/2017)</td>
+    </tr>
+    <tr>
+        <td>18:30</td>
+        <td>HX 9366</td>
+        <td>Zhengzhou,Tianjin</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 20:31</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>18:40</td>
+        <td>LH 8472</td>
+        <td>Frankfurt,Mumbai</td>
+        <td>dummy,Lufthansa Cargo</td>
+        <td>At gate 18:47</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>19:00</td>
+        <td>EK 9884</td>
+        <td>Dubai/DWC</td>
+        <td>wmouae,Emirates</td>
+        <td>At gate 19:03</td>
+    </tr>
+    <tr>
+        <td>19:15</td>
+        <td>HX 9738D</td>
+        <td>Kuala Lumpur</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 18:14 (25/5/2017)</td>
+    </tr>
+    <tr>
+        <td>19:20</td>
+        <td>CI 6843</td>
+        <td>Taipei</td>
+        <td>wmocal,China Airlines</td>
+        <td>At gate 20:05</td>
+    </tr>
+    <tr>
+        <td>20:00</td>
+        <td>CV 856</td>
+        <td>Luxembourg,Dubai/DWC</td>
+        <td>wmoclx,Cargolux Airlines</td>
+        <td>At gate 20:27</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>21:20</td>
+        <td>HX 9062</td>
+        <td>Dhaka</td>
+        <td>wmocrk,Hong Kong Airlines</td>
+        <td>At gate 23:50</td>
+    </tr>
+    <tr>
+        <td>21:35</td>
+        <td>CI 5842</td>
+        <td>Manila</td>
+        <td>wmocal,China Airlines</td>
+        <td>At gate 21:56</td>
+    </tr>
+    <tr>
+        <td>22:10</td>
+        <td>NH 8424</td>
+        <td>Singapore</td>
+        <td>wmoana,All Nippon Airways</td>
+        <td>At gate 22:26</td>
+    </tr>
+    <tr>
+        <td>22:10</td>
+        <td>P3 339</td>
+        <td>Moscow</td>
+        <td>dummy,CargoLogicAir</td>
+        <td>At gate 22:17</td>
+    </tr>
+    <tr>
+        <td>22:55</td>
+        <td>CX 081</td>
+        <td>Columbus ,Chicago,Anchorage</td>
+        <td>wmocpa,Cathay Pacific</td>
+        <td>At gate 22:08</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>23:20</td>
+        <td>O3 6892</td>
+        <td>Xiamen</td>
+        <td>dummy,SF Airlines</td>
+        <td>At gate 00:13 (25/5/2017)</td>
+    </tr>
+    <tr>
+        <td>23:20</td>
+        <td>9S 098</td>
+        <td>Los Angeles,Leipzig</td>
+        <td>dummy,Southern Air Inc</td>
+        <td>At gate 22:56</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>23:25</td>
+        <td>RU 339</td>
+        <td>Moscow</td>
+        <td>dummy,Airbridge Cargo Airline</td>
+        <td>Cancelled</td>
+    </tr>
+    <tr>
+        <td>23:35</td>
+        <td>CI 5821</td>
+        <td>Taipei</td>
+        <td>wmocal,China Airlines</td>
+        <td>At gate 01:09 (25/5/2017)</td>
+    </tr>
+    <tr>
+        <td>00:10</td>
+        <td>OZ 969</td>
+        <td>Seoul/ICN</td>
+        <td>wmoaar,Asiana Airlines</td>
+        <td>At gate 23:57 (24/5/2017)&lt;/
+            td&gt;</td>
+    </tr>
+</table>
+</body>
+</html>

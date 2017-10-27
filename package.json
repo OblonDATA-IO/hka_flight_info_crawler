@@ -1,0 +1,27 @@
+{
+  "name": "hka-delay-backend",
+  "version": "1.0.0",
+  "description": "The backend for Hong Kong International Airport flight delay tracker",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "backend",
+    "hka",
+    "flight",
+    "delay",
+    "tracker"
+  ],
+  "author": "Thomas Sham",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "github": "^12.0.1",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "phantomjs-prebuilt": "^2.1.14",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
+  }
+}
