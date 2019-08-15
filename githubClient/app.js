@@ -2,7 +2,8 @@
  * Created by Thomas Sham on 20/9/2017.
  */
 
-const GitHubApi = require('github');
+const path = require('path');
+const root = path.parse(process.mainModule.filename).dir;
 
-const github = new GitHubApi();
+const simpleGit = require('simple-git')(root);
 

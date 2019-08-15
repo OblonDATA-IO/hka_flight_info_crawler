@@ -3,9 +3,7 @@
  */
 
 const request = require("request-promise-native");
-
 const cheerio = require("cheerio");
-
 const moment = require("moment-timezone");
 
 const FlightTimeParser = require("./components/FlightTimeParser");
@@ -70,55 +68,58 @@ module.exports = class HKACrawler {
 
     crawlHKIAWebsite (dateTime){
         let requiredDateTime = moment(dateTime, "YYYY-M-DD");
-        return new Promise((resolve, reject) => {
-            request(urls[this.mode][this.type] + requiredDateTime.format("YYYY-M-DD")).then(
-                (htmlString) => {
-                    let data = [];
-                    let $ = cheerio.load(htmlString);
-                    let rootRecordDate;
-                    $("tr").each((ind, ele) => {
-                        let temp = Object.assign({}, dataObjectTemplates[this.mode][this.type]);
+        return new Promise(async (resolve, reject) => {
+            let htmlString;
+            try {
+                htmlString = await request(urls[this.mode][this.type] + requiredDateTime.format("YYYY-M-DD"));
+            } catch (e) {
+                reject(err);
+            }
 
-                        if (!!$(ele).attr("date")){
-                            let date = $(ele).attr("date").split(",");
-                            rootRecordDate = moment.tz(date[date.length - 1], "YYYY-MM-DD", "Asia/Hong_Kong").format();
-                        }
+            let data = [];
+            let $ = cheerio.load(htmlString);
+            let rootRecordDate;
+            $("tr").each(
+                (ind, ele) => {
+                    let temp = Object.assign({}, dataObjectTemplates[this.mode][this.type]);
 
-                        let validFlag = true;
-                        for (let i = 0; i < ele.children.length; i++){
-                            if (!$(ele.children[i]).text()){
-                                // break out from the loop if the text is empty
-                                i = ele.children.length;
-                                validFlag = false;
-                            } else temp[Object.keys(temp)[i]] = $(ele.children[i]).text();
-                        }
+                    if (!!$(ele).attr("date")){
+                        let date = $(ele).attr("date").split(",");
+                        rootRecordDate = moment.tz(date[date.length - 1], "YYYY-MM-DD", "Asia/Hong_Kong").format();
+                    }
 
-                        //console.log(temp);
+                    let isValid = true;
+                    for (let i = 0; i < ele.children.length; i++){
+                        if (!$(ele.children[i]).text()){
+                            // break out from the loop if the text is empty
+                            i = ele.children.length;
+                            isValid = false;
+                        } else temp[Object.keys(temp)[i]] = $(ele.children[i]).text();
+                    }
 
-                        if (validFlag){
-                            temp.scheduledDateTime = FlightTimeParser(temp, rootRecordDate);
-                            delete temp.time;
+                    //console.log(temp);
 
-                            temp.flight_nos = FlightNoParser(temp);
-                            delete temp.airline;
-                            delete temp.flight_no;
+                    if (isValid){
+                        temp.scheduledDateTime = FlightTimeParser(temp, rootRecordDate);
+                        delete temp.time;
 
-                            temp = Object.assign(temp, FlightStatusParser(temp));
-                            delete temp.status;
+                        temp.flight_nos = FlightNoParser(temp);
+                        delete temp.airline;
+                        delete temp.flight_no;
 
-                            temp.mode = this.mode;
-                            temp.type = this.type;
+                        temp = Object.assign(temp, FlightStatusParser(temp));
+                        delete temp.status;
 
-                            data.push(temp);
-                        }
-                        //return false;
-                    });
-                    resolve(data);
-                },
-                err => {
-                    reject(err);
+                        temp.mode = this.mode;
+                        temp.type = this.type;
+
+                        data.push(temp);
+                    }
+                    //return false;
                 }
             );
+
+            resolve(data);
         });
     }
 };
