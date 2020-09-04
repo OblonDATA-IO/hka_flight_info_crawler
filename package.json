@@ -20,7 +20,7 @@
     "commander": "^3.0.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.26",
-    "papaparse": "^5.0.2",
+    "papaparse": "^5.2.0",
     "phantomjs-prebuilt": "^2.1.16",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.7",
