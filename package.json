@@ -18,7 +18,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "commander": "^3.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "moment-timezone": "^0.5.26",
     "papaparse": "^5.0.2",
     "phantomjs-prebuilt": "^2.1.16",
