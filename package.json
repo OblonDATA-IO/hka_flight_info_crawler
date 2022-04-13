@@ -16,14 +16,11 @@
   "author": "OblonDATA.IO Limited",
   "license": "ISC",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "commander": "^3.0.0",
-    "moment": "^2.24.0",
-    "moment-timezone": "^0.5.26",
-    "papaparse": "^5.0.2",
-    "phantomjs-prebuilt": "^2.1.16",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7",
-    "simple-git": "^1.124.0"
+    "cheerio": "^1.0.0-rc.10",
+    "commander": "^9.1.0",
+    "date-fns": "^2.28.0",
+    "got": "^11.8.3",
+    "papaparse": "^5.3.2",
+    "simple-git": "^3.6.0"
   }
 }
